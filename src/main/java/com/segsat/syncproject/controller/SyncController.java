@@ -22,10 +22,7 @@ public class SyncController {
         int quantidade =postService.sincronizaPost();
 
         return ResponseEntity.ok(
-                Map.of(
-                        "message", "Sicronização Compelta",
-                        "quatidade", quantidade
-                )
+                Map.of("message", "Sicronização Compelta", "quatidade", quantidade)
         );
     }
 

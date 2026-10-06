@@ -1,5 +1,6 @@
 package com.segsat.syncproject.controller;
 
+import com.segsat.syncproject.exception.PostNotFoundException;
 import com.segsat.syncproject.model.Post;
 import com.segsat.syncproject.repository.PostRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,6 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public Post buscarPostPeloId(@PathVariable Long id){
-        return postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Post não encontrado"));
+        return postRepository.findById(id).orElseThrow(() -> new PostNotFoundException("Post não encontrado"));
     }
 }

@@ -13,9 +13,7 @@ public class JsonPlaceholderClient {
     private final RestClient restClient;
 
     public JsonPlaceholderClient(){
-        this.restClient = RestClient.builder()
-                .baseUrl("https://jsonplaceholder.typicode.com")
-                .build();
+        this.restClient = RestClient.builder().baseUrl("https://jsonplaceholder.typicode.com").build();
     }
 
     public List<Post> buscarPosts(){
