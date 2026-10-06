@@ -20,11 +20,11 @@ public class Post {
     public Post(){
     }
 
-    public Post(String body, String title, Long userId, Long id) {
-        this.body = body;
-        this.title = title;
-        this.userId = userId;
+    public Post(Long id,Long userId,String title, String body) {
         this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.body = body;
     }
 
     public Long getId() {
