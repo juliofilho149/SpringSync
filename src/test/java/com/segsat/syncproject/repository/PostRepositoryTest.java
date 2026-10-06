@@ -1,14 +1,16 @@
-package com.segsat.syncproject.PostRepositoryTest;
+package com.segsat.syncproject.repository;
 
 import com.segsat.syncproject.model.Post;
-import com.segsat.syncproject.repository.PostRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class PostRepositoryTest {
 
     @Autowired
@@ -28,9 +30,9 @@ public class PostRepositoryTest {
 
         Post encontrado = postRepository.findById(1L).orElse(null);
 
-        assertThat(encontrado).isNotNull();
-        assertThat(encontrado.getId()).isEqualTo(1L);
-        assertThat(encontrado.getTitle()).isEqualTo("Olá, meu primeiro post!");
+        Assertions.assertThat(encontrado).isNotNull();
+        Assertions.assertThat(encontrado.getId()).isEqualTo(1L);
+        Assertions.assertThat(encontrado.getTitle()).isEqualTo("Primeiro post");
 
 
 

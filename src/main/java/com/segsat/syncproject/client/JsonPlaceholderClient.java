@@ -12,8 +12,8 @@ public class JsonPlaceholderClient {
 
     private final RestClient restClient;
 
-    public JsonPlaceholderClient(RestClient.Builder builder){
-        this.restClient = builder
+    public JsonPlaceholderClient(){
+        this.restClient = RestClient.builder()
                 .baseUrl("https://jsonplaceholder.typicode.com")
                 .build();
     }
