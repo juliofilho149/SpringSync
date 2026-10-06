@@ -1,9 +1,19 @@
 services:
   postgres:
-    image: 'postgres:latest'
+    image: postgres:16
+    container_name: sync-postgres
+    restart: unless-stopped
+
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_DB: sync
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+
     ports:
-      - '5432'
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
