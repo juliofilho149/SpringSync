@@ -10,6 +10,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    //Definindo uma Exceção Global
     @ExceptionHandler(PostNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Map<String, String> handlePostNotFound(PostNotFoundException exception){

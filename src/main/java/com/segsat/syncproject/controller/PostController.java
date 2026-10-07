@@ -13,26 +13,28 @@ import java.util.List;
 @RestController
 public class PostController {
 
+    //PostRepository é uma interface que herdou o JpaRepository, assim, ganhando metodos para realizar alterações em tabelas de banco de dados.
     private final PostRepository postRepository;
 
     public PostController(PostRepository postRepository){
         this.postRepository = postRepository;
     }
-
+    //Sumário e a descrição que o Swagger irá exibir na página
     @Operation(
             summary = "Lista todos os posts adicionados pelo JsonPlaceholder",
             description = "Retorna todas as informações do banco de dados"
     )
-    @GetMapping("/posts")
+    @GetMapping("/posts")//Esse GetMapping irá retornar todos os posts adicionados ao banco de dados.
     public List<Post> listarPosts(){
         return postRepository.findAll();
     }
 
+    //Sumário e a descrição que o Swagger irá exibir na página
     @Operation(
             summary = "Realiza a busca de um ID",
             description = "Retorna um post em específico pelo ID."
     )
-    @GetMapping("/posts/{id}")
+    @GetMapping("/posts/{id}") //Esse GetMapping irá retornar um post de um Id específico, ou irá retornar "Post não encontrado" caso o Id não exista.
     public Post buscarPostPeloId(@PathVariable Long id){
         return postRepository.findById(id).orElseThrow(() -> new PostNotFoundException("Post não encontrado"));
     }

@@ -4,14 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+//Criação da tabela que irá receber os posts e retornar os gets
 @Entity
-@Table(name = "posts")
+@Table(name = "posts") //nome da tabela
 public class Post {
 
-    @Id
+    @Id //definindo o Id, não adicionei o @GeneratedValue pois a API REST não irá ser responsável por adicionar novos posts, eles virão do JsonPlaceholder
     private Long id;
 
-    private Long userId;
+    private Long userId; //Definindo o restante das colunas
 
     private String title;
 
@@ -19,7 +20,7 @@ public class Post {
 
     public Post(){
     }
-
+    // Construtor utilizado para criar um Post com todas as informações
     public Post(Long id,Long userId,String title, String body) {
         this.id = id;
         this.userId = userId;
@@ -27,6 +28,7 @@ public class Post {
         this.body = body;
     }
 
+    //Geters e Seters
     public Long getId() {
         return id;
     }

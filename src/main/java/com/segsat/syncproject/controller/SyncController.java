@@ -16,16 +16,18 @@ public class SyncController {
     public SyncController(PostService postService){
         this.postService = postService;
     }
-
+    //Sumário e a descrição que o Swagger irá exibir na página
     @Operation(
             summary = "Executa o preenchimento do banco de dados",
             description = "Insere o total de 100 posts no banco de dados"
     )
-    @PostMapping("/sync")
+    @PostMapping("/sync") // Endpoint responsável por iniciar a sincronização dos posts do JSONPlaceholder
     public ResponseEntity<Map<String, Object>> sincronizar(){
 
-        int quantidade =postService.sincronizaPost();
+        //irá receber a quantidade de 100 por padrão, que é a quantidade fornecida pelo JsonPlaceholder
+        int quantidade = postService.sincronizaPost();
 
+        // Retorna uma resposta HTTP 200 com uma mensagem e a quantidade de Posts sincronizados
         return ResponseEntity.ok(
                 Map.of("message", "Sincronização Completa", "quantidade", quantidade)
         );

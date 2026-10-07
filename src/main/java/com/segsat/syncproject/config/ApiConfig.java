@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApiConfig {
 
+    //Configuração do Swagger, estou definindo o título da página.
     @Bean
     public OpenAPI customApi(){
         return new OpenAPI().info(new Info().title("SyncProject"));
