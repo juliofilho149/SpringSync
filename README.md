@@ -54,9 +54,7 @@ Também é necessário manter o Docker Desktop aberto.
 
 ### 4. Iniciar o PostgreSQL pelo Docker
 
-Abra o terminal na pasta do projeto e execute: docker compose up -d
-
-Inicie o projeto após a conclusão da configuração do Docker.
+Abra o terminal na pasta do projeto e execute: 
 
 ```bash
-
+docker compose up -d
