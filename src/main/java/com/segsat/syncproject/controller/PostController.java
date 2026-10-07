@@ -21,8 +21,8 @@ public class PostController {
     }
     //Sumário e a descrição que o Swagger irá exibir na página
     @Operation(
-            summary = "Lista todos os posts adicionados pelo JsonPlaceholder",
-            description = "Retorna todas as informações do banco de dados"
+            summary = "Lista todos os posts.",
+            description = "Retorna todos os posts armazenados no banco de dados PostgreSQL."
     )
     @GetMapping("/posts")//Esse GetMapping irá retornar todos os posts adicionados ao banco de dados.
     public List<Post> listarPosts(){
@@ -31,8 +31,8 @@ public class PostController {
 
     //Sumário e a descrição que o Swagger irá exibir na página
     @Operation(
-            summary = "Realiza a busca de um ID",
-            description = "Retorna um post em específico pelo ID."
+            summary = "Busca um post por ID.",
+            description = "Retorna um post específico armazenado no banco de dados a partir do seu ID. Caso o post não seja encontrado, retorna HTTP 404."
     )
     @GetMapping("/posts/{id}") //Esse GetMapping irá retornar um post de um Id específico, ou irá retornar "Post não encontrado" caso o Id não exista.
     public Post buscarPostPeloId(@PathVariable Long id){

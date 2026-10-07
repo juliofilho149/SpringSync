@@ -10,7 +10,7 @@ public class HealthController {
     //Configuração do Swagger que irá ser exibida na página
     @Operation(
             summary = "Exibe o status do sistema",
-            description = "Irá retornar o status do sistema"
+            description = "Retornar o status do sistema"
     )
     //O retorno que /health trará ao ser consultado
     @GetMapping("/health")

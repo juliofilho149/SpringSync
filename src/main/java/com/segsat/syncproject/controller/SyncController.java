@@ -18,8 +18,8 @@ public class SyncController {
     }
     //Sumário e a descrição que o Swagger irá exibir na página
     @Operation(
-            summary = "Executa o preenchimento do banco de dados",
-            description = "Insere o total de 100 posts no banco de dados"
+            summary = "Sincroniza os posts do JSONPlaceholder.",
+            description = "Consulta os posts disponíveis na API pública JSONPlaceholder e persiste os dados no PostgreSQL. Retorna a quantidade de posts sincronizados."
     )
     @PostMapping("/sync") // Endpoint responsável por iniciar a sincronização dos posts do JSONPlaceholder
     public ResponseEntity<Map<String, Object>> sincronizar(){
