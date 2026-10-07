@@ -1,6 +1,6 @@
 Projeto Sync
 
-API Rest desenvolvida em Java utilizando o Spring boot framework.
+API Rest desenvolvida em Java utilizando o Spring boot framework e Docker.
 A aplicação consulta os posts da API JSONPlaceholder, persiste os dados no PostgreSQL e disponibiliza endpoints REST para consulta.
 
 Tecnologias utilizadas: 
