@@ -1,45 +1,62 @@
 Projeto Sync
 
-API Rest desenvolvida em Java utilizando o Spring boot framework e Docker.
-A aplicação consulta os posts da API JSONPlaceholder, persiste os dados no PostgreSQL e disponibiliza endpoints REST para consulta.
+API REST desenvolvida em Java utilizando o framework Spring Boot e Docker.
 
-Tecnologias utilizadas: 
+A aplicação consulta os posts da API pública JSONPlaceholder, persiste os dados no PostgreSQL e disponibiliza endpoints REST para consulta e sincronização.
+
+Tecnologias utilizadas
 
 - Java 25
 - Spring Boot 4.1.1
-- Spring DATA jpa
-- PostgreSQL 
+- Spring Data JPA
+- PostgreSQL
 - Docker
+- Docker Compose
 - Maven
 - Springdoc OpenAPI / Swagger
 
-Pré-requisitos para executar o programa:
+Pré-requisitos
 
-* Java 25
-* Docker
-* Docker compose
+Para executar o projeto, é necessário ter instalado:
 
-Como iniciar o Docker:
-1 - Faça a instalação do Docker no site oficial: https://docs.docker.com/desktop/setup/install/windows-install/ 
+- Java 25
+- Docker
+- Docker Compose
 
-2 - Após baixar o arquivo executável, complete a instalação por ele.
+Como executar o projeto
 
-3 - Caso Você tenha o PostgreSQL instalado na maquina, é importante parar o serviço dele, vou deixar um passo a passo básico aqui:
-    Aperte windows + R e digite "services.msc" >> Procure pelo serviço "postgresql-x64-18", ou algo semelhante, podendo mudar dependendo da sua versão
-    >> Aperte nele com o botão direito do mouse, e selecione "parar", assim o servidor do docker será o único postgreSQL em sua máquina, evitando conflitos
-    de ter 2 portas padrões iguais (5432).
+1. Instalação do Docker
 
-4 - Após seguir o passo anterior, realize o git clone desse repositório em sua maquina e abra o arquivo e o docker desktop.
+Caso ainda não possua o Docker instalado, faça o download pelo site oficial:
 
-5 - Execute o seguinte comando no terminal para subir a imagem do docker: docker compose up -d e espera a conclusão.
+https://docs.docker.com/desktop/setup/install/windows-install/
 
-6 - Após executar o container muito provavelmente já terá subido a imagem do banco de dados em seu Docker Desktop, execute arquivo: "SyncProjectApplication"
+Após baixar o instalador, conclua a instalação.
 
-7 - Acesse o seguinte link após o servidor estar ativo: http://localhost:8080/swagger-ui.html
+2. Verificar o PostgreSQL
 
+Caso você já tenha o PostgreSQL instalado na máquina, é importante verificar se ele está utilizando a porta `5432`.
 
-TESTES
+Para evitar conflitos com o PostgreSQL executado pelo Docker:
 
-O projeto contém 4 testes disponíveis:
-    Dois testes que estão no PostRepositoryTest no caminho: \SyncProject\SyncProject\src\test\java\com\segsat\syncproject\repository que é responsável salvar e também consultar os posts cadastrados.
-    Mais dois testes em PostController no caminho: SyncProject\SyncProject\src\test\java\com\segsat\syncproject\controller que é responsável por tentar realizar a busca de um post que não existe, e retornar uma mensagem de erro 404.
+1. Pressione `Windows + R`.
+2. Digite `services.msc`.
+3. Procure pelo serviço do PostgreSQL, por exemplo `postgresql-x64-18`.
+4. Clique com o botão direito no serviço e selecione **Parar**.
+
+A versão do serviço pode variar de acordo com a versão do PostgreSQL instalada.
+
+3. Clonar o projeto
+
+Clone o repositório do projeto em sua máquina e abra a pasta do projeto.
+
+Também é necessário manter o Docker Desktop aberto.
+
+### 4. Iniciar o PostgreSQL pelo Docker
+
+Abra o terminal na pasta do projeto e execute: docker compose up -d
+
+Inicie o projeto após a conclusão da configuração do Docker.
+
+```bash
+
